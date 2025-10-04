@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOMENT: The App-Style Invitation</title>
+    <title>VOWTIQUE: The App-Style Invitation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,9 +11,9 @@
                 extend: {
                     colors: {
                         'soft-blush': '#F4E9E6', 
-                        'deep-navy': '#1E293B',  
+                        'deep-navy': '#1E293B', 
                         'rose-gold-accent': '#C5A586', 
-                        'menu-bar-dark': '#374151', // Warna untuk Bottom Bar
+                        'menu-bar-dark': '#374151', 
                     },
                     fontFamily: {
                         'serif-elegant': ['Playfair Display', 'serif'], 
@@ -23,6 +23,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
         
@@ -36,7 +37,7 @@
             opacity: 0;
             transform: translateY(15px);
             transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-            scroll-margin-top: 50px; /* Diperlukan untuk smooth scroll dari menu bawah */
+            scroll-margin-top: 50px; 
         }
         
         /* Efek Hover Card Elegan */
@@ -48,7 +49,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Efek Parallax Ringan pada Foto */
+        /* Efek Parallax Ringan pada Foto (Perlu file mempelai.jpeg) */
         .parallax-bg {
             background-size: cover;
             background-attachment: fixed;
@@ -61,40 +62,46 @@
         }
 
         /* Gaya Timeline */
-.timeline-container {
-    position: relative;
-    padding-left: 30px; /* Jarak untuk garis vertikal */
-}
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+        }
 
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 10px; /* Posisi Garis Vertikal */
-    width: 2px;
-    background-color: #C5A586; /* Rose Gold Accent */
-}
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 10px; 
+            width: 2px;
+            background-color: #C5A586; 
+        }
 
-.timeline-dot {
-    position: absolute;
-    left: 4px; /* Posisi lingkaran di atas garis */
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #C5A586;
-    border: 3px solid #F4E9E6; /* Border Soft Blush */
-    transition: background-color 0.3s ease;
-}
-
-
+        .timeline-dot {
+            position: absolute;
+            left: 4px; 
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #C5A586;
+            border: 3px solid #F4E9E6; 
+            transition: background-color 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-soft-blush font-sans-clean overflow-x-hidden min-h-screen">
 
+    <audio id="background-music" loop>
+        <source src="wedding-song.mp3" type="audio/mp3"> 
+    </audio>
+
+    <button id="music-control" class="fixed hidden w-12 h-12 bg-rose-gold-accent text-white rounded-full shadow-lg flex items-center justify-center transition duration-300 hover:bg-rose-gold-accent/80" style="bottom: 120px; right: 20px;" aria-label="Play/Pause Music">
+        <i id="music-icon" class="fa-solid fa-play text-lg"></i>
+    </button>
+    
     <div id="cover" class="fixed inset-0 bg-deep-navy flex flex-col justify-center items-center">
         <h1 class="text-3xl font-serif-elegant text-soft-blush tracking-widest animate-pulse">
-            MOMENT
+            VOWTIQUE
         </h1>
         <p class="text-lg text-gray-400 mt-2">The Digital Invitation</p>
         
@@ -230,23 +237,23 @@
     </main>
 
     <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 max-w-2xl mx-auto bg-menu-bar-dark text-white h-20 flex justify-around items-center z-50 rounded-t-xl">
-        <a href="#home" class="flex flex-col items-center p-2 text-rose-gold-accent hover:text-white transition">
+        <a href="#home" class="nav-link active flex flex-col items-center p-2 text-rose-gold-accent hover:text-white transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
             <span class="text-xs mt-1">Home</span>
         </a>
-        <a href="#acara" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+        <a href="#acara" class="nav-link flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
             <span class="text-xs mt-1">Acara</span>
         </a>
-        <a href="#kisah" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+        <a href="#kisah" class="nav-link flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
             <span class="text-xs mt-1">Kisah</span>
         </a>
-        <a href="#galeri" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+        <a href="#galeri" class="nav-link flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
             <span class="text-xs mt-1">Galeri</span>
         </a>
-        <a href="#ucapan" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+        <a href="#ucapan" class="nav-link flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-4l-3 3v-3H2a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path></svg>
             <span class="text-xs mt-1">Ucapan</span>
         </a>
