@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOMENT: The App-Style Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-blush': '#F4E9E6', 
+                        'deep-navy': '#1E293B',  
+                        'rose-gold-accent': '#C5A586', 
+                        'menu-bar-dark': '#374151', // Warna untuk Bottom Bar
+                    },
+                    fontFamily: {
+                        'serif-elegant': ['Playfair Display', 'serif'], 
+                        'sans-clean': ['Inter', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+        
+        #cover {
+            transition: opacity 0.8s ease-in-out; 
+            z-index: 1000;
+        }
+
+        /* Animasi Entrance Umum (Smooth Fade-In) */
+        .content-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            scroll-margin-top: 50px; /* Diperlukan untuk smooth scroll dari menu bawah */
+        }
+        
+        /* Efek Hover Card Elegan */
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efek Parallax Ringan pada Foto */
+        .parallax-bg {
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* Gaya Bottom Navigation Bar */
+        #bottom-nav {
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gaya Timeline */
+.timeline-container {
+    position: relative;
+    padding-left: 30px; /* Jarak untuk garis vertikal */
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px; /* Posisi Garis Vertikal */
+    width: 2px;
+    background-color: #C5A586; /* Rose Gold Accent */
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 4px; /* Posisi lingkaran di atas garis */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C5A586;
+    border: 3px solid #F4E9E6; /* Border Soft Blush */
+    transition: background-color 0.3s ease;
+}
+
+
+    </style>
+</head>
+<body class="bg-soft-blush font-sans-clean overflow-x-hidden min-h-screen">
+
+    <div id="cover" class="fixed inset-0 bg-deep-navy flex flex-col justify-center items-center">
+        <h1 class="text-3xl font-serif-elegant text-soft-blush tracking-widest animate-pulse">
+            MOMENT
+        </h1>
+        <p class="text-lg text-gray-400 mt-2">The Digital Invitation</p>
+        
+        <button id="open-button" class="mt-12 px-8 py-3 text-lg font-semibold rounded-full bg-rose-gold-accent text-deep-navy hover:bg-rose-gold-accent/80 transition duration-300 shadow-xl opacity-0 translate-y-5">
+            Buka Undangan
+        </button>
+        <p class="text-sm text-gray-400 mt-4 opacity-0" id="to-guest">Kepada Yth. Bapak/Ibu Tamu</p>
+    </div>
+
+    <main id="main-content" class="min-h-screen hidden pb-24">
+        <div class="container mx-auto max-w-2xl px-6">
+            
+            <section id="home" class="text-center pt-16 mb-12">
+                <p class="text-lg text-rose-gold-accent content-item" data-delay="100">The Wedding of</p>
+                <h2 class="text-6xl md:text-8xl font-serif-elegant text-deep-navy my-4 content-item" data-delay="200">
+                    Arya <span class="text-rose-gold-accent">&</span> Rina
+                </h2>
+                <p class="text-xl text-deep-navy/80 content-item" data-delay="300">Sabtu, 14 Februari 2026</p>
+            </section>
+            
+            <section class="mb-12 content-item" data-delay="400">
+                <div class="relative w-full aspect-square md:aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white parallax-bg" style="background-image: url('mempelai.jpeg'); height: 550px;">
+                </div>
+            </section>
+
+            <section id="acara" class="text-center mb-16 grid grid-cols-2 gap-4">
+                <div class="p-6 bg-white rounded-xl shadow-lg border border-rose-gold-accent/30 card-hover content-item" data-delay="500">
+                    <p class="text-sm text-rose-gold-accent">Hitung Mundur</p>
+                    <div id="countdown" class="text-3xl font-bold text-deep-navy mt-1">- Hari -</div>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg border border-rose-gold-accent/30 card-hover content-item" data-delay="600">
+                    <p class="text-sm text-rose-gold-accent">Pukul</p>
+                    <p class="text-3xl font-bold text-deep-navy mt-1">11.00 - 13.00 WIB</p>
+                </div>
+            </section>
+            
+            <section class="mb-16 content-item" data-delay="700">
+                <h3 class="text-2xl font-serif-elegant text-deep-navy border-b border-rose-gold-accent/50 pb-2 mb-4">Lokasi Acara</h3>
+                <p class="text-deep-navy/90 leading-relaxed">
+                    Gedung Serbaguna Puri Indah, <br>Jl. Kenanga No. 10, Jakarta Barat.
+                </p>
+                <button class="mt-4 px-6 py-2 text-sm font-semibold rounded-lg bg-rose-gold-accent text-white hover:bg-rose-gold-accent/80 transition duration-300">
+                    Buka Peta
+                </button>
+            </section>
+
+            <section id="kisah" class="mb-16 content-item" data-delay="800">
+                <h3 class="text-3xl font-serif-elegant text-deep-navy text-center mb-10">True Story</h3>
+                
+                <div class="timeline-container">
+                    
+                    <div class="mb-10 relative">
+                        <div class="timeline-dot top-1"></div>
+                        <div class="ml-6 p-5 bg-white rounded-xl shadow-lg border border-gray-200 card-hover">
+                            <h4 class="text-xs font-semibold text-rose-gold-accent mb-1">TAHUN 2015</h4>
+                            <h5 class="text-xl font-bold text-deep-navy mb-2">Perkenalan</h5>
+                            <p class="text-gray-700 text-sm leading-relaxed">Kami dipertemukan saat menjadi mahasiswa baru. Kami berada di satu jurusan dan kelas yang sama, pada saat itu kami hanya teman biasa.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-10 relative">
+                        <div class="timeline-dot top-1"></div>
+                        <div class="ml-6 p-5 bg-white rounded-xl shadow-lg border border-gray-200 card-hover">
+                            <h4 class="text-xs font-semibold text-rose-gold-accent mb-1">AKHIR TAHUN 2016</h4>
+                            <h5 class="text-xl font-bold text-deep-navy mb-2">Awal Komitmen</h5>
+                            <p class="text-gray-700 text-sm leading-relaxed">Setelah lulus kuliah, hubungan kami menjadi semakin dekat. Di akhir 2016, ia memberanikan diri menyatakan perasaannya. Hubungan kami hingga saat ini sudah hampir 5 tahun.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-10 relative">
+                        <div class="timeline-dot top-1"></div>
+                        <div class="ml-6 p-5 bg-white rounded-xl shadow-lg border border-gray-200 card-hover">
+                            <h4 class="text-xs font-semibold text-rose-gold-accent mb-1">NOVEMBER 2024</h4>
+                            <h5 class="text-xl font-bold text-deep-navy mb-2">Lamaran</h5>
+                            <p class="text-gray-700 text-sm leading-relaxed">Setelah waktu yang lama kami menjalin hubungan, ia mengajak untuk serius. Ia datang ke keluarga saya untuk melamar dan menyampaikan niat menuju ke jenjang pernikahan.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="timeline-dot top-1"></div>
+                        <div class="ml-6 p-5 bg-white rounded-xl shadow-lg border border-gray-200 card-hover">
+                            <h4 class="text-xs font-semibold text-rose-gold-accent mb-1">14 FEBRUARI 2026</h4>
+                            <h5 class="text-xl font-bold text-deep-navy mb-2">Pernikahan</h5>
+                            <p class="text-gray-700 text-sm leading-relaxed">Dengan izin Allah SWT dan restu orang tua, kami memulai babak baru dengan mengikat janji suci. Bismillahirahmanirrahim.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <section id="galeri" class="mb-16 content-item" data-delay="900">
+                <h3 class="text-3xl font-serif-elegant text-deep-navy text-center mb-8">Galeri Momen</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <img src="1.jpg" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300" alt="Galeri Momen 1">
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <img src="2.png" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300" alt="Galeri Momen 2">
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <img src="3.jpeg" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300" alt="Galeri Momen 3">
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <img src="4.jpg" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300" alt="Galeri Momen 4">
+                    </div>
+                </div>
+            </section>
+
+            <section id="ucapan" class="mb-16 content-item" data-delay="1000">
+                <h3 class="text-2xl font-serif-elegant text-deep-navy border-b border-rose-gold-accent/50 pb-2 mb-4">Kirim Ucapan & Doa</h3>
+                
+                <form class="space-y-4 p-6 bg-white rounded-xl shadow-inner border border-gray-200 card-hover">
+                    <input type="text" placeholder="Nama Anda" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-rose-gold-accent focus:border-rose-gold-accent outline-none">
+                    <textarea placeholder="Tulis ucapan dan doa terbaik Anda..." rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-rose-gold-accent focus:border-rose-gold-accent outline-none"></textarea>
+                    <button type="submit" class="w-full py-3 font-semibold rounded-lg bg-deep-navy text-soft-blush hover:bg-deep-navy/90 transition duration-300">
+                        Kirim Ucapan
+                    </button>
+                </form>
+
+                <div id="guestbook-list" class="mt-6 space-y-3">
+                    <div class="p-4 bg-gray-100 rounded-lg border-l-4 border-rose-gold-accent">
+                        <p class="font-semibold text-deep-navy">Bapak Budi</p>
+                        <p class="text-sm text-gray-700">Selamat menempuh hidup baru Arya dan Rina! Semoga bahagia selalu. ✨</p>
+                    </div>
+                </div>
+            </section>
+            
+            <footer class="text-center pt-8 border-t border-gray-300 content-item" data-delay="1100">
+                <p class="text-sm text-deep-navy/70">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+                <p class="text-rose-gold-accent font-serif-elegant mt-2">Arya & Rina</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 max-w-2xl mx-auto bg-menu-bar-dark text-white h-20 flex justify-around items-center z-50 rounded-t-xl">
+        <a href="#home" class="flex flex-col items-center p-2 text-rose-gold-accent hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span class="text-xs mt-1">Home</span>
+        </a>
+        <a href="#acara" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+            <span class="text-xs mt-1">Acara</span>
+        </a>
+        <a href="#kisah" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+            <span class="text-xs mt-1">Kisah</span>
+        </a>
+        <a href="#galeri" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            <span class="text-xs mt-1">Galeri</span>
+        </a>
+        <a href="#ucapan" class="flex flex-col items-center p-2 text-gray-400 hover:text-rose-gold-accent transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-4l-3 3v-3H2a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path></svg>
+            <span class="text-xs mt-1">Ucapan</span>
+        </a>
+    </nav>
+
+
+    <script src="demo.js"></script>
+</body>
+</html>

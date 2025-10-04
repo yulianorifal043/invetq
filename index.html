@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOMENT - Undangan Digital Minimalis & Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // AKTIFKAN mode gelap berbasis kelas
+            theme: {
+                extend: {
+                    colors: {
+                        // Light Mode Colors
+                        'primary-light': '#FFFFFF', 
+                        'secondary-dark': '#1F2937', 
+                        'accent-teal': '#20B2AA', 
+                        'soft-gold': '#A78BFA', 
+                        'cta-strong': '#10B981', 
+                        
+                        // Dark Mode Colors
+                        'dark-bg': '#111827', 
+                        'dark-card': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-primary-light text-secondary-dark dark:bg-dark-bg dark:text-gray-100 min-h-screen font-sans transition-colors duration-300">
+<nav class="sticky top-0 bg-primary-light/90 dark:bg-dark-bg/90 backdrop-blur-sm z-50 shadow-md dark:shadow-gray-700/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-secondary-dark dark:text-soft-gold tracking-wider">MOMENT</h1>
+            <div class="flex items-center space-x-4">
+                <div class="space-x-4 hidden md:block">
+                    <a href="#fitur" class="text-gray-600 dark:text-gray-300 hover:text-accent-teal dark:hover:text-soft-gold transition">Fitur</a>
+                    <a href="#template" class="text-gray-600 dark:text-gray-300 hover:text-accent-teal dark:hover:text-soft-gold transition">Template</a>
+                    <a href="#harga" class="text-gray-600 dark:text-gray-300 hover:text-accent-teal dark:hover:text-soft-gold transition">Harga</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full text-secondary-dark dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32 bg-primary-light dark:bg-dark-bg">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0 z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-gradient-light dark:text-gradient-dark">
+                    Rayakan Setiap Momen, <br>Tanpa Batasan Kertas.
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0">
+                    Undangan digital yang minimalis, elegan, dan didukung teknologi *real-time* untuk memudahkan hari spesial Anda.
+                </p>
+
+                <div class="mt-10 flex justify-center lg:justify-start space-x-4">
+                    <button class="px-8 py-3 text-lg font-semibold rounded-lg bg-cta-strong text-white hover:bg-green-700 transition duration-300 shadow-xl shadow-cta-strong/40">
+                        Pesan Sekarang
+                    </button>
+                    <a href="demo.html" class="px-8 py-3 text-lg font-semibold rounded-lg border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 inline-flex items-center justify-center">
+                        Lihat Demo
+                    </a>
+                </div>
+            </div>
+
+            <div id="cube-container" class="lg:w-1/2 flex justify-center lg:justify-end relative z-10">
+                <div class="floating-cube w-80 h-80 bg-white/70 dark:bg-dark-card/70 backdrop-blur-md rounded-[40px] border-2 border-accent-teal/50 dark:border-soft-gold/50 shadow-2xl p-6 flex flex-col justify-center items-center cursor-pointer transform hover:shadow-accent-teal/40 dark:hover:shadow-soft-gold/40 text-secondary-dark dark:text-gray-200">
+                    <svg class="w-20 h-20 text-accent-teal dark:text-soft-gold mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" id="cube-icon" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    
+                    <h3 class="text-2xl font-bold mb-2" id="cube-title">Peta Interaktif</h3>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400" id="cube-desc">
+                        Navigasi Google Maps langsung di undangan.
+                    </p>
+                </div>
+                <div class="absolute inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-teal/10 dark:bg-soft-gold/10 rounded-full blur-3xl z-0"></div>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="fitur" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-accent-teal dark:text-soft-gold mb-12">Keunggulan Digital MOMENT</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+                <div class="bg-white dark:bg-dark-card p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-accent-teal dark:hover:border-soft-gold transition duration-300">
+                    <svg class="w-10 h-10 mx-auto mb-4 text-cta-strong dark:text-soft-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <h3 class="text-2xl font-semibold text-secondary-dark dark:text-gray-100">RSVP Real-Time</h3>
+                    <p class="mt-3 text-gray-600 dark:text-gray-400">Konfirmasi kehadiran dan ucapan tamu terdata instan, memudahkan perhitungan kursi.</p>
+                </div>
+
+                <div class="bg-white dark:bg-dark-card p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-accent-teal dark:hover:border-soft-gold transition duration-300">
+                    <svg class="w-10 h-10 mx-auto mb-4 text-cta-strong dark:text-soft-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-3m-3 0h3m-3 0V4a2 2 0 00-2-2H6a2 2 0 00-2 2v2"></path></svg>
+                    <h3 class="text-2xl font-semibold text-secondary-dark dark:text-gray-100">Desain Multi-Device</h3>
+                    <p class="mt-3 text-gray-600 dark:text-gray-400">Tampilan sempurna di semua perangkat, dari *smartphone* hingga desktop.</p>
+                </div>
+
+                <div class="bg-white dark:bg-dark-card p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-accent-teal dark:hover:border-soft-gold transition duration-300">
+                    <svg class="w-10 h-10 mx-auto mb-4 text-cta-strong dark:text-soft-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <h3 class="text-2xl font-semibold text-secondary-dark dark:text-gray-100">Amplop Digital (E-Gift)</h3>
+                    <p class="mt-3 text-gray-600 dark:text-gray-400">Integrasi transfer bank dan *e-gift* yang mudah tanpa biaya tambahan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="template" class="py-20 bg-primary-light dark:bg-dark-bg transition-colors duration-300">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-accent-teal dark:text-soft-gold mb-12">Koleksi Template Elegan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 dark:bg-dark-card p-4 rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300 border border-gray-200 dark:border-gray-700">
+                    <img src="https://via.placeholder.com/400x600/F9FAFB/1F2937?text=Template+Minimalis" alt="Template Minimalist" class="rounded-lg w-full h-auto object-cover border border-gray-300 dark:border-gray-600">
+                    <h4 class="mt-3 text-xl font-semibold text-secondary-dark dark:text-gray-100">The White Canvas</h4>
+                </div>
+                <div class="bg-gray-50 dark:bg-dark-card p-4 rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300 border border-gray-200 dark:border-gray-700">
+                    <img src="https://via.placeholder.com/400x600/F9FAFB/1F2937?text=Template+Rustic" alt="Template Rustic" class="rounded-lg w-full h-auto object-cover border border-gray-300 dark:border-gray-600">
+                    <h4 class="mt-3 text-xl font-semibold text-secondary-dark dark:text-gray-100">Earth Tone</h4>
+                </div>
+                <div class="bg-gray-50 dark:bg-dark-card p-4 rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300 border border-gray-200 dark:border-gray-700">
+                    <img src="https://via.placeholder.com/400x600/F9FAFB/1F2937?text=Template+Modern+Motion" alt="Template Modern Motion" class="rounded-lg w-full h-auto object-cover border border-gray-300 dark:border-gray-600">
+                    <h4 class="mt-3 text-xl font-semibold text-secondary-dark dark:text-gray-100">Modern Motion</h4>
+                </div>
+            </div>
+            <a href="#" class="inline-block mt-10 text-lg font-semibold text-accent-teal dark:text-soft-gold hover:text-cta-strong transition border-b border-accent-teal dark:border-soft-gold">
+                Lihat Semua Koleksi →
+            </a>
+        </div>
+    </section>
+
+    <section id="harga" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-accent-teal dark:text-soft-gold mb-12">Pilihan Paket MOMENT</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                
+                <div class="bg-white dark:bg-dark-card p-8 rounded-xl shadow-xl border-2 border-gray-200 dark:border-gray-700 hover:border-soft-gold transition duration-300">
+                    <h3 class="text-2xl font-bold text-secondary-dark dark:text-gray-100">Basic Digital</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Undangan website untuk pemula</p>
+                    <p class="text-5xl font-extrabold my-6 text-secondary-dark dark:text-gray-100">Rp149K</p>
+                    <ul class="text-left space-y-3 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-center">✅ 1 Pilihan Template Standard</li>
+                        <li class="flex items-center">✅ Peta & Penghitung Mundur</li>
+                        <li class="flex items-center">✅ Subdomain MOMENT</li>
+                        <li class="flex items-center">✅ Masa Aktif 6 Bulan</li>
+                        <li class="flex items-center">❌ Guest Book / RSVP</li>
+                    </ul>
+                    <button class="w-full mt-8 py-3 font-semibold rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300">Pilih Basic</button>
+                </div>
+
+                <div class="bg-white dark:bg-dark-card p-8 rounded-xl shadow-2xl border-2 border-cta-strong ring-4 ring-cta-strong/50 transform scale-[1.05] z-10">
+                    <p class="bg-cta-strong text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">PILIHAN TERBAIK</p>
+                    <h3 class="text-3xl font-bold text-secondary-dark dark:text-gray-100">Premium Pro</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fitur lengkap & terintegrasi penuh</p>
+                    <p class="text-6xl font-extrabold my-6 text-cta-strong">Rp299K</p>
+                    <ul class="text-left space-y-3 text-secondary-dark dark:text-gray-200">
+                        <li class="flex items-center">✅ **Semua Fitur Basic**</li>
+                        <li class="flex items-center">✅ **Guest Book & Real-Time RSVP**</li>
+                        <li class="flex items-center">✅ Amplop Digital (E-Gift)</li>
+                        <li class="flex items-center">✅ Galeri Foto & Video Premium</li>
+                        <li class="flex items-center">✅ **Masa Aktif 1 Tahun**</li>
+                    </ul>
+                    <button class="w-full mt-8 py-3 font-semibold rounded-lg bg-cta-strong text-white hover:bg-green-700 transition duration-300 shadow-lg shadow-cta-strong/40">Pesan Paket Premium</button>
+                </div>
+
+                <div class="bg-white dark:bg-dark-card p-8 rounded-xl shadow-xl border-2 border-gray-200 dark:border-gray-700 hover:border-soft-gold transition duration-300">
+                    <h3 class="text-2xl font-bold text-secondary-dark dark:text-gray-100">Luxury Custom</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Pengalaman paling eksklusif</p>
+                    <p class="text-5xl font-extrabold my-6 text-secondary-dark dark:text-gray-100">Rp499K</p>
+                    <ul class="text-left space-y-3 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-center">✅ **Semua Fitur Premium**</li>
+                        <li class="flex items-center">✅ **Domain .com Gratis 1 Tahun**</li>
+                        <li class="flex items-center">✅ Buku Tamu QR Code On-Site</li>
+                        <li class="flex items-center">✅ Desain & Warna Kustom Penuh</li>
+                        <li class="flex items-center">✅ Masa Aktif **Selamanya**</li>
+                    </ul>
+                    <button class="w-full mt-8 py-3 font-semibold rounded-lg bg-gray-200 dark:bg-gray-700 text-secondary-dark dark:text-gray-200 hover:bg-soft-gold dark:hover:bg-soft-gold hover:text-white dark:hover:text-white transition duration-300">Pilih Luxury</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary-dark dark:bg-dark-card border-t border-gray-700 py-10 transition-colors duration-300">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 MOMENT. Ciptakan kenangan. Didukung oleh teknologi *real-time*.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

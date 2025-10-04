@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment: Undangan Digital Pernikahan Modern & Lengkap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Dasar untuk Landing Page */
+        :root {
+            --primary-color: #A38C6D; /* Gold/Emas Coklat */
+            --secondary-color: #333;
+            --light-bg: #F8F7F3;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #8C7558;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        #hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--light-bg);
+        }
+
+        #hero h1 {
+            font-family: var(--font-title);
+            font-size: 3.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* SECTION STYLING */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* FITUR CARD */
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .feature-card {
+            flex-basis: 30%;
+            min-width: 280px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin: 15px 0;
+            font-size: 1.3rem;
+        }
+
+        /* BUNDLING/USP SECTION */
+        #bundling {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        
+        .usp-box {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .usp-box ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .usp-box li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.1rem;
+        }
+        
+        .usp-box li:last-child {
+            border-bottom: none;
+        }
+        
+        .usp-box li strong {
+            color: var(--primary-color);
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            flex-basis: 30%;
+            min-width: 300px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .price-card.popular {
+            border-color: var(--primary-color);
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(163, 140, 109, 0.2);
+            transform: scale(1.05);
+        }
+
+        .price-card h4 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .price-card .price {
+            font-size: 3rem;
+            margin: 15px 0;
+            font-weight: 700;
+        }
+        
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+        
+        .price-card li {
+            padding: 8px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            .feature-card, .price-card {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <div class="logo">Moment</div>
+        <nav>
+            <a href="#fitur">Fitur</a>
+            <a href="#bundling">Include</a>
+            <a href="#harga">Harga</a>
+            <a href="#" class="btn-primary">Daftar / Login</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <p>STOP! Mengirim Undangan Kuno yang Boros Kertas.</p>
+            <h1>Moment: Undangan Digital yang Mewujudkan Pernikahan Impian Anda.</h1>
+            <p>Desain Modern, Fitur Lengkap, dan Integrasi Souvenir & RSVP Terbaik. Mulai buat undangan Anda dalam 5 menit!</p>
+            <a href="#demo" class="btn-primary" style="font-size:1.2rem;">Coba Demo Undangan Anda Sekarang! ➡️</a>
+        </div>
+    </section>
+
+    <section id="fitur" class="container">
+        <h2 class="section-title">Lebih dari Sekadar Undangan, Ini Pengalaman.</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>💍 Desain Tanpa Batas</h3>
+                <p>Ratusan tema modern, elegan, dan minimalis. Ganti warna dan font sesuka hati Anda di Dashboard Editor kami.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📈 Fungsionalitas Cerdas</h3>
+                <p>RSVP Real-time, QR Code Check-in, dan Peta Navigasi interaktif Google Maps. Kelola tamu semudah menggeser jari.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎁 Bundling Eksklusif</h3>
+                <p>Integrasi Souvenir Kustom dan Voucher Diskon Vendor Mitra (WO, Katering, Fotografer) untuk pernikahan yang lebih hemat.</p>
+            </div>
+        </div>
+    </section>
+    
+    <hr>
+
+    <section id="bundling">
+        <h2 class="section-title">Nikah Lebih Praktis: Undangan *Include* Semuanya.</h2>
+        <div class="usp-box">
+            <p style="font-size: 1.1rem; font-style: italic;">Lupakan kerumitan buku tamu manual dan proses RSVP yang lambat. Moment memberikan solusi All-in-One:</p>
+            <ul>
+                <li>✅ **Sistem QR Code Terintegrasi:** Setiap tamu mendapat QR unik yang berfungsi sebagai **tiket masuk** dan **voucher souvenir**.</li>
+                <li>✅ **Laporan Kehadiran Instan:** Pantau siapa yang sudah *check-in* secara *real-time* di *dashboard* Anda.</li>
+                <li>✅ **Reminder Otomatis:** Sistem mengirim pesan reminder H-7 ke tamu yang belum merespon RSVP via WhatsApp.</li>
+                <li>✅ **Kado Digital:** Integrasi mudah dengan semua bank dan *e-wallet* di Indonesia.</li>
+            </ul>
+        </div>
+        <a href="#harga" class="btn-primary">Pilih Paket Bundling Terbaik!</a>
+    </section>
+
+    <hr>
+    
+    <section id="harga" class="container">
+        <h2 class="section-title">Pilih Paket Terbaik untuk Momen Anda.</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>BASIC</h4>
+                <div class="price">Rp150K</div>
+                <p>Undangan Digital Sederhana.</p>
+                <ul>
+                    <li>✔️ Masa Aktif 1 Bulan</li>
+                    <li>✔️ 10 Foto Galeri</li>
+                    <li>✔️ Sub-domain Gratis</li>
+                </ul>
+                <a href="#" class="btn-primary">Pilih Basic</a>
+            </div>
+            
+            <div class="price-card popular">
+                <p style="color: var(--primary-color); font-weight: bold;">PALING POPULER 🔥</p>
+                <h4>PREMIUM</h4>
+                <div class="price">Rp350K</div>
+                <p>Undangan Lengkap dengan Fitur Cerdas.</p>
+                <ul>
+                    <li>✔️ **Masa Aktif Selamanya**</li>
+                    <li>✔️ **QR Code Check-in**</li>
+                    <li>✔️ **RSVP & Buku Tamu Digital**</li>
+                    <li>✔️ Unlimited Galeri Foto/Video</li>
+                </ul>
+                <a href="#" class="btn-primary">Pilih Premium</a>
+            </div>
+
+            <div class="price-card">
+                <h4>ULTIMATE</h4>
+                <div class="price">Rp750K</div>
+                <p>Pengalaman Penuh & Branding Maksimal.</p>
+                <ul>
+                    <li>✔️ Semua Fitur Premium</li>
+                    <li>✔️ **Custom Domain** (e.g., namaanda.com)</li>
+                    <li>✔️ Video Undangan 3D</li>
+                    <li>✔️ Prioritas Dukungan 24/7</li>
+                </ul>
+                <a href="#" class="btn-primary">Pilih Ultimate</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Moment. All rights reserved. | Hubungi Kami: 0812-xxxx-xxxx</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

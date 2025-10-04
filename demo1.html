@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Rizky & Amanda</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="cover" class="full-screen-section center-content">
+        <div class="content-box">
+            <p class="to-text">Kepada Yth. **<span id="guest-name-placeholder">[NamaTamu]</span>**</p> 
+            
+            <h1 class="main-title">Rizky & Amanda</h1>
+            <p class="date-text">17.11.2025</p>
+            <button id="open-invitation" class="btn-primary">Buka Undangan</button>
+        </div>
+        <audio id="background-music" loop>
+            <source src="wedding-song.mp3" type="audio/mp3">
+        </audio>
+    </section>
+
+    <main id="main-content" style="display:none;">
+
+        <section id="mempelai" class="section-padding text-center">
+            <h2 class="section-title">The Bride & Groom</h2>
+            <div class="couple-info">
+                <div class="person">
+                    <img src="amanda.jpg" alt="Amanda" class="profile-photo">
+                    <h3>Amanda Putri S.Psi.</h3>
+                    <p>Putri dari Bpk. Chandra & Ibu Melisa</p>
+                </div>
+                <div class="ampersand">&</div>
+                <div class="person">
+                    <img src="rizky.jpg" alt="Rizky" class="profile-photo">
+                    <h3>Rizky Wibowo S.Kom.</h3>
+                    <p>Putra dari Bpk. Hadi & Ibu Siti</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="waktu-lokasi" class="section-padding text-center bg-light">
+            <h2 class="section-title">Waktu Bahagia</h2>
+            <div id="countdown" class="countdown-timer"></div>
+            
+            <div class="event-details">
+                <div class="event-box">
+                    <h4>AKAD NIKAH</h4>
+                    <p>Senin, 17 November 2025</p>
+                    <p>Pukul 09.00 - 10.00 WIB</p>
+                </div>
+                <div class="event-box">
+                    <h4>RESEPSI</h4>
+                    <p>Senin, 17 November 2025</p>
+                    <p>Pukul 11.00 - 13.00 WIB</p>
+                </div>
+            </div>
+            
+            <div id="qr-code-section" style="margin-top: 50px;">
+                <h3 style="color: #A38C6D;">Kode Kehadiran Anda</h3>
+                <img id="guest-qr-code" src="qrcode-simulasi.png" alt="QR Code Kehadiran" style="width: 150px; height: 150px; border: 5px solid #A38C6D; margin: 15px 0;">
+                <p>Harap tunjukkan kode ini saat tiba di lokasi resepsi.</p>
+            </div>
+            
+            <div class="location-map">
+                <p><strong>The Grand Ballroom, Jakarta Pusat</strong></p>
+                <button class="btn-secondary">Lihat di Google Maps</button>
+            </div>
+        </section>
+
+        <section id="rsvp" class="section-padding">
+            <h2 class="section-title text-center">Konfirmasi Kehadiran & Ucapan</h2>
+            <form id="rsvp-form" class="rsvp-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <select required>
+                    <option value="">Pilih Kehadiran</option>
+                    <option value="Hadir">Insya Allah Hadir</option>
+                    <option value="Tidak">Mohon Maaf Tidak Hadir</option>
+                </select>
+                <input type="number" placeholder="Jumlah Tamu (termasuk Anda)" value="1" min="1" required>
+                <textarea placeholder="Tulis Ucapan & Doa Anda..." rows="4" required></textarea>
+                <button type="submit" class="btn-primary">Kirim Konfirmasi & Doa</button>
+                <p id="rsvp-message" class="success-message" style="display:none;">Terima kasih! Konfirmasi Anda telah kami terima.</p>
+            </form>
+        </section>
+
+        <section id="kado" class="section-padding text-center bg-dark">
+            <h2 class="section-title">Kirim Kado & Doa</h2>
+            <p>Doa restu Anda adalah kado terindah. Namun, jika Anda ingin memberikan tanda kasih, dapat melalui:</p>
+            <div class="bank-info">
+                <p>BANK XYZ (a.n. Rizky Wibowo)</p>
+                <p class="account-number">**1234 5678 90**</p>
+                <button class="btn-secondary copy-btn" data-account="1234567890">Salin Rekening</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

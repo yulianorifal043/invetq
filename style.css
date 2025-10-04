@@ -1,0 +1,35 @@
+/* Custom CSS untuk Animasi dan Transisi */
+
+/* Animasi Kubus Melayang (Floating Cube) */
+.floating-cube {
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Base Transition untuk Body (membuat Dark/Light Mode lebih smooth) */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🟢 LIGHT MODE: Judul terlihat JELAS (Gradien Gelap) */
+.text-gradient-light {
+    background-image: linear-gradient(to right, #1F2937, #374151);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 🟣 DARK MODE: Judul terlihat JELAS (Gradien Terang/Soft Gold) */
+.dark .text-gradient-dark {
+    /* MENGGUNAKAN WARNA SANGAT TERANG (#F9FAFB) sebagai warna awal gradien */
+    background-image: linear-gradient(to right, #F9FAFB, #A78BFA); /* F9FAFB adalah warna putih/lightest gray */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
